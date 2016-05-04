@@ -70,7 +70,7 @@ setPromptCalibrationConfig(tier0Config,
                            validationMode = True)
 
 # Defaults for CMSSW version
-defaultCMSSWVersion = "CMSSW_8_0_6"
+defaultCMSSWVersion = "CMSSW_8_0_7"
 
 # Configure ScramArch
 setDefaultScramArch(tier0Config, "slc6_amd64_gcc491")
@@ -86,6 +86,7 @@ setScramArch(tier0Config, "CMSSW_8_0_4", "slc6_amd64_gcc493")
 setScramArch(tier0Config, "CMSSW_8_0_5", "slc6_amd64_gcc493")
 setScramArch(tier0Config, "CMSSW_8_0_5_patch1", "slc6_amd64_gcc493")
 setScramArch(tier0Config, "CMSSW_8_0_6", "slc6_amd64_gcc493")
+setScramArch(tier0Config, "CMSSW_8_0_7", "slc6_amd64_gcc493")
 
 # Configure scenarios
 #ppScenario = "ppEra_Run2_25ns"
@@ -104,7 +105,7 @@ expressProcVersion = 1
 alcarawProcVersion = 1
 
 # Defaults for GlobalTag
-expressGlobalTag = "80X_dataRun2_Express_v6"
+expressGlobalTag = "80X_dataRun2_Express_v7"
 promptrecoGlobalTag = "80X_dataRun2_Prompt_v8"
 alcap0GlobalTag = "80X_dataRun2_Prompt_v8"
 
@@ -129,7 +130,8 @@ repackVersionOverride = {
     "CMSSW_8_0_2" : "CMSSW_8_0_6",
     "CMSSW_8_0_3" : "CMSSW_8_0_6",
     "CMSSW_8_0_4" : "CMSSW_8_0_6",
-    "CMSSW_8_0_5" : "CMSSW_8_0_6"
+    "CMSSW_8_0_5" : "CMSSW_8_0_6",
+    "CMSSW_8_0_6" : "CMSSW_8_0_7"
     }
 
 expressVersionOverride = {
@@ -139,7 +141,8 @@ expressVersionOverride = {
     "CMSSW_8_0_2" : "CMSSW_8_0_6",
     "CMSSW_8_0_3" : "CMSSW_8_0_6",
     "CMSSW_8_0_4" : "CMSSW_8_0_6",
-    "CMSSW_8_0_5" : "CMSSW_8_0_6"
+    "CMSSW_8_0_5" : "CMSSW_8_0_6",
+    "CMSSW_8_0_6" : "CMSSW_8_0_7"
     }
 
 #set default repack settings for bulk streams
@@ -1019,9 +1022,9 @@ addExpressConfig(tier0Config, "Express",
                  scenario = ppScenario,
                  data_tiers = [ "FEVT" ],
                  write_dqm = True,
-                 alca_producers = [ "SiStripPCLHistos", "SiStripCalZeroBias", "SiStripCalMinBias",
+                 alca_producers = [ "SiStripPCLHistos", "SiStripCalZeroBias", "SiStripCalMinBias", "SiStripCalMinBiasAfterAbortGap",
                                     "TkAlMinBias", "DtCalib", "PromptCalibProd", "Hotline",
-                                    "PromptCalibProdSiStrip", "LumiPixelsMinBias" ],
+                                    "PromptCalibProdSiStrip", "LumiPixelsMinBias", "PromptCalibProdSiStripGains", "PromptCalibProdSiPixelAli" ],
                  reco_version = defaultCMSSWVersion,
                  multicore = numberOfCores,
                  global_tag_connect = globalTagConnect,
@@ -1042,9 +1045,9 @@ addExpressConfig(tier0Config, "Express0T",
                  scenario = ppScenarioB0T,
                  data_tiers = [ "FEVT" ],
                  write_dqm = True,
-                 alca_producers = [ "SiStripPCLHistos", "SiStripCalZeroBias", "SiStripCalMinBias",
+                 alca_producers = [ "SiStripPCLHistos", "SiStripCalZeroBias", "SiStripCalMinBias", "SiStripCalMinBiasAfterAbortGap",
                                     "TkAlMinBias", "DtCalib", "PromptCalibProd", "Hotline",
-                                    "PromptCalibProdSiStrip", "LumiPixelsMinBias" ],
+                                    "PromptCalibProdSiStrip", "LumiPixelsMinBias", "PromptCalibProdSiStripGains", "PromptCalibProdSiPixelAli" ],
                  reco_version = defaultCMSSWVersion,
                  multicore = numberOfCores,
                  global_tag_connect = globalTagConnect,
